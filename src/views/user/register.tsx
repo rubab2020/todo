@@ -1,25 +1,12 @@
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/auth/AuthContext";
+import React from "react";
 import { prepareFormFields } from "../../helpers/form";
 
-const Login = () => {
-    const auth = useContext(AuthContext);
-    const navigate = useNavigate();
-
+const Register = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        let form = document.getElementById('loginForm');
+        let form = document.getElementById('registrationForm');
         let formData = prepareFormFields(form);
-        
-        if (formData?.email && formData?.password) {
-            const isLoggedIn = await auth.login(formData?.email, formData?.password);
-            if (isLoggedIn) {
-                navigate('/todo');
-            } else {
-                alert('Invalid credentials.');
-            }
-        }
+        console.log(formData);
     };
 
     return (
@@ -28,13 +15,20 @@ const Login = () => {
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="card">
-                            <div className="card-header">Login</div>
+                            <div className="card-header">Register</div>
                             <div className="card-body">
-                                <form onSubmit={handleSubmit} id="loginForm">
+                                <form onSubmit={handleSubmit} id="registrationForm">
+                                    <div className="form-group row mb-2">
+                                        <label htmlFor="name" className="col-md-4 col-form-label text-end">Name</label>
+                                        <div className="col-md-6">
+                                            <input type="text" id="name" className="form-control" name="name" required autoFocus />
+                                        </div>
+                                    </div>
+            
                                     <div className="form-group row mb-2">
                                         <label htmlFor="email_address" className="col-md-4 col-form-label text-end">E-Mail Address</label>
                                         <div className="col-md-6">
-                                            <input type="email" id="email_address" className="form-control" name="email" required autoFocus />
+                                            <input type="text" id="email_address" className="form-control" name="email" required />
                                         </div>
                                     </div>
             
@@ -57,7 +51,7 @@ const Login = () => {
 
                                     <div className="form-group row">
                                         <div className="col-md-6 offset-md-4">
-                                            <button type="submit" className="btn btn-primary">Login</button>
+                                            <button type="submit" className="btn btn-primary">Register</button>
                                         </div>
                                     </div>
                                 </form>
@@ -71,4 +65,4 @@ const Login = () => {
     );
 }
  
-export default Login;
+export default Register;

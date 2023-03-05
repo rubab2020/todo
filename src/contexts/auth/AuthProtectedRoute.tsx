@@ -4,8 +4,8 @@ import { AuthContext } from "./AuthContext";
 
 const AuthProtectedRoute = ({children}: {children: JSX.Element}) => {
     const auth = useContext(AuthContext);
-
-    if (!auth?.user) {
+    
+    if (!auth.loading && !auth?.user) {
         return <Navigate to="/login" />
     }
 
