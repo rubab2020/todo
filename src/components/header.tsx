@@ -20,6 +20,12 @@ const Header = () => {
     
     const authNavLinks = () => {
         return <React.Fragment>
+            <li className="nav-item">
+                <Link to="/todos" className="nav-link">Todos</Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/tasks" className="nav-link">Tasks</Link>
+            </li>
             <NavDropdown title={auth?.user?.name || 'Mr. X'} id="basic-nav-dropdown">
                 <NavDropdown.Item href={void(0)} onClick={logout}>Logout</NavDropdown.Item>
             </NavDropdown>
@@ -35,7 +41,7 @@ const Header = () => {
         <React.Fragment>
             <nav className="navbar navbar-expand-lg navbar-light navbar-todo">
                 <div className="container">
-                    <Link to="/todo" className="navbar-brand">Todo</Link>
+                    <Link to="/todos" className="navbar-brand">Todo</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

@@ -15,7 +15,7 @@ const Login = () => {
         if (formData?.email && formData?.password) {
             const isLoggedIn = await auth.login(formData?.email, formData?.password);
             if (isLoggedIn) {
-                navigate('/todo');
+                navigate('/todos');
             } else {
                 alert('Invalid credentials.');
             }
@@ -61,7 +61,6 @@ const Login = () => {
                                         </div>
                                     </div>
                                 </form>
-                                    
                             </div>
                         </div>
                     </div>

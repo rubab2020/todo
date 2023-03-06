@@ -1,12 +1,25 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { prepareFormFields } from "../../helpers/form";
+import useApi from "../../hooks/useApi";
 
 const Register = () => {
+    const api = useApi();
+    const navigate = useNavigate();
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         let form = document.getElementById('registrationForm');
         let formData = prepareFormFields(form);
-        console.log(formData);
+        
+        if (formData?.name && formData?.email && formData?.password) {
+            const registered = await api.register(formData?.name, formData?.email, formData?.password);
+            if (registered.user) {
+                navigate('/login');
+            } else {
+                alert('Something went wrong! Please try again.');
+            }
+        }
     };
 
     return (
@@ -55,7 +68,6 @@ const Register = () => {
                                         </div>
                                     </div>
                                 </form>
-                                    
                             </div>
                         </div>
                     </div>

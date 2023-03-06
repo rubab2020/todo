@@ -5,7 +5,8 @@ import './App.css';
 import Header from './components/header';
 import AuthProtectedRoute from './contexts/auth/AuthProtectedRoute';
 import GuestProtectedRoute from './contexts/guest/GuestProtectedRoute';
-import Todo from './views/app/todo/list';
+import Task from './views/app/task';
+import Todo from './views/app/todo';
 import Login from './views/user/login';
 import Register from './views/user/register';
 
@@ -18,7 +19,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<GuestProtectedRoute><Login /></GuestProtectedRoute>} />
         <Route path="/register" element={<GuestProtectedRoute><Register /></GuestProtectedRoute>} />
-        <Route path="/todo" element={<AuthProtectedRoute><Todo /></AuthProtectedRoute>} />
+        <Route path="/todos" element={<AuthProtectedRoute><Todo /></AuthProtectedRoute>} />
+        <Route path="/tasks" element={<AuthProtectedRoute><Task /></AuthProtectedRoute>} />
       </Routes>
     </React.Fragment>
   )
