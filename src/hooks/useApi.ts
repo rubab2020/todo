@@ -51,8 +51,16 @@ const useApi = () => ({
         return {user: null};
     },
     logout: async () => {
-        // const response = await api.post('/api/logout');
-        return {status: true};
+        try {
+            const response = await api.post('/api/logout');
+            if (response.data.code === 200) {
+                return {status: true};
+            }
+        } catch (error) {
+            // handle exception
+        }
+
+        return {status: false};
     },
     getTodoList: async () => {
         try {

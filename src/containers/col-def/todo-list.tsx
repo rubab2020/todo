@@ -12,7 +12,7 @@ const todoListColumns = (setType: any, setShowModal: any, setTodo: any, deleteTo
     {
         name: 'Status',
         cell: (row: any) => (
-            <Badge bg={row.status ? 'success' : 'warning'}>{row.status ? 'Active' : 'Inactive'}</Badge>
+            <Badge bg={row.status ? 'success' : 'warning'}>{row.status ? 'Done' : 'Initiated'}</Badge>
         ),
     },
     {

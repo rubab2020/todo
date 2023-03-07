@@ -34,9 +34,13 @@ const AuthProvider = ({children}: {children: JSX.Element}) => {
     }
 
     const logout = async () => {
-        setUser(null);
-        setToken('');
-        await api.logout();
+        const data = await api.logout();
+        if (data?.status) {
+            setUser(null);
+            setToken('');
+            return true;
+        }
+        return false;
     }
 
     const setToken = (token: string) => {

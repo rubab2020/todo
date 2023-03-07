@@ -8,7 +8,7 @@ const taskListColumns = (setType: any, setShowModal: any, setTask: any, deleteTa
     {
         name: 'Todo',
         cell: (row: any) => (
-            <span className={`text-${row?.todo?.status ? '' : 'warning'}`}>{row?.todo?.name}</span>
+            <span className={`text-${row?.todo?.status ? 'success' : 'warning'}`}>{row?.todo?.name}</span>
         ),
     },
     {
@@ -18,7 +18,7 @@ const taskListColumns = (setType: any, setShowModal: any, setTask: any, deleteTa
     {
         name: 'Status',
         cell: (row: any) => (
-            <Badge bg={row.status ? 'success' : 'warning'}>{row.status ? 'Active' : 'Inactive'}</Badge>
+            <Badge bg={row.status ? 'success' : 'warning'}>{row.status ? 'Done' : 'Initiated'}</Badge>
         ),
     },
     {

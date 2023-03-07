@@ -69,7 +69,7 @@ const Todo = () => {
                 <Modal.Body>
                     <ul>
                         {(todo?.tasks || []).map((item: any, index: any) => {
-                            return <li key={index}><span className={`text-${item?.status ? '' : 'warning'}`}>{item?.name}</span></li>
+                            return <li key={index}><span className={`text-${item?.status ? 'success' : 'warning'}`}>{item?.name}</span></li>
                         })}
                     </ul>
                 </Modal.Body>
@@ -96,8 +96,8 @@ const Todo = () => {
                             <label htmlFor="id_status">Status</label>
                             <select name="status" id="id_status" className="form-control" defaultValue={todo?.status} required>
                                 <option value="">Select Status</option>
-                                <option value="1">Active</option>
-                                <option value="0">Inactive</option>
+                                <option value="0">Initiated</option>
+                                <option value="1">Done</option>
                             </select>
                         </div>
                 </Modal.Body>

@@ -92,8 +92,8 @@ const Task = () => {
                             <label htmlFor="id_status">Status</label>
                             <select name="status" id="id_status" className="form-control" defaultValue={task?.status} required>
                                 <option value="">Select Status</option>
-                                <option value="1">Active</option>
-                                <option value="0">Inactive</option>
+                                <option value="0">Initiated</option>
+                                <option value="1">Done</option>
                             </select>
                         </div>
                 </Modal.Body>

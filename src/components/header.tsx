@@ -33,8 +33,10 @@ const Header = () => {
     };
     
     const logout = async () => {
-        await auth.logout();
-        navigate('/login');
+        const isLoggedOut = await auth.logout();
+        if (isLoggedOut) {
+            navigate('/login');
+        }
     };
 
     return (
