@@ -1,4 +1,4 @@
-# Todo API
+# Todo
 Todo Project for Managing Todo Lists.
 
 ## Installation
