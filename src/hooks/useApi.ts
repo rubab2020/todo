@@ -1,8 +1,12 @@
 import axios from 'axios';
 
-const api = axios.create({
-    baseURL: import.meta.env.VITE_BASE_API_URL,
-    headers: {...(localStorage.getItem('accessToken') ? {'Authorization': `Bearer ${localStorage.getItem('accessToken')}`} : {})}
+let axiosConfig = {baseURL: import.meta.env.VITE_BASE_API_URL};
+const api = axios.create(axiosConfig);
+api.interceptors.request.use((axiosConfig) => {
+    if (localStorage.getItem('accessToken')) {
+        axiosConfig.headers.Authorization =  `Bearer ${localStorage.getItem('accessToken')}`;
+    }
+    return axiosConfig;
 });
 
 const useApi = () => ({

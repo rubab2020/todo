@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/header';
 import AuthProtectedRoute from './contexts/auth/AuthProtectedRoute';
@@ -21,6 +21,7 @@ function App() {
         <Route path="/register" element={<GuestProtectedRoute><Register /></GuestProtectedRoute>} />
         <Route path="/todos" element={<AuthProtectedRoute><Todo /></AuthProtectedRoute>} />
         <Route path="/tasks" element={<AuthProtectedRoute><Task /></AuthProtectedRoute>} />
+        <Route path="*" element={<Navigate replace to="/login" />} />
       </Routes>
     </React.Fragment>
   )
